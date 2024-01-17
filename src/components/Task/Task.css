@@ -1,0 +1,14 @@
+.task-name {
+    font-size: .8rem;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+
+    list-style: none;
+    padding: 1rem;
+}
+
+.completed {
+    text-decoration: line-through;
+}
+

@@ -1,0 +1,25 @@
+.main-dark {
+    background-image: url('./assets/bg-desktop-dark.jpg');
+    background-color: var(--veryDarkBlue);
+}
+
+.add-task-input-dark {
+    background-color: var(--veryDarkDesaturatedBlue);
+}
+
+.check-box-dark {
+    border: 1px solid var(--lightGrayishBlue2);
+    background-color: var(--veryDarkDesaturatedBlue);
+}
+
+.task-list-dark {
+    background-color: var(--veryDarkDesaturatedBlue);
+}
+
+.completed-dark {
+    color: var(--darkGrayishBlue1);
+}
+
+.task-name-dark {
+    color: var(--lightGrayishBlue1);
+}

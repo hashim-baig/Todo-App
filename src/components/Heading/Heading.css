@@ -1,0 +1,17 @@
+.heading {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    font-weight: 700;
+    font-size: 2.5rem;
+    color: #fff;
+    letter-spacing: 1rem;
+}
+
+.theme-btn {
+    border: none;
+    background: none;
+    outline: none;
+    cursor: pointer;
+}
