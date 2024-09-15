@@ -1,0 +1,19 @@
+@import '../src/styles//variables.css';
+
+.App {
+    min-height: 100vh;
+
+    font-size: var(--font-body-size);
+    font-family: var(--font-family);
+    color: white;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.dark-app {
+    background-color: var(--very-dark-blue);
+}

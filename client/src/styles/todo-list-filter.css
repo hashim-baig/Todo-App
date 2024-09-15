@@ -1,0 +1,25 @@
+.todo-list-filter {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    font-size: 0.5rem;
+}
+
+.filter-btn {
+    list-style-type: none;
+    display: flex;
+    gap: 0.5rem;
+}
+
+.todo-list-filter  button {
+    border: none;
+    background: none;
+    color: white;
+    font-family: inherit;
+    font-size: 0.5rem;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
