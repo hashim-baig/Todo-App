@@ -14,7 +14,7 @@ const AuthController = require('./controllers/authController')
 const app = express();
 
 app.use(cors({
-    origin: process.env.CORS_ORIGIN || 'http://localhost:5173',
+    origin: 'http://localhost:5173' || process.env.CORS_ORIGIN,
     credentials: true
 }));
 app.use(express.json());
@@ -30,7 +30,7 @@ app.use(session({
     cookie: {
         maxAge: 1000 * 60 * 5,
         httpOnly: true,         
-        secure: false,         
+        secure: true,         
         sameSite: 'none'   
     }
 }));
