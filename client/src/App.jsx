@@ -2,7 +2,7 @@ import { useContext, useState } from 'react';
 import { ThemeContext } from './context/ThemeContextProvider';
 import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from 'react-router-dom'
 
-import Todo from './pages/todo';
+import Todo from './pages/Todo';
 import Login from './pages/Login';
 
 import './App.css';
