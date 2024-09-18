@@ -12,9 +12,6 @@ const register = async (req, res) => {
 
         const hashedPassword = await bcrypt.hash(password, 10);
 
-        console.log(`Username: ${username}`)
-        console.log(`Password: ${hashedPassword}`)
-
         await AuthModels.registerUser(username, hashedPassword);
 
         res.status(201).send('User Registered');
@@ -28,9 +25,6 @@ const register = async (req, res) => {
 const login = async (req, res) => {
     const { username, password } = req.body;
 
-    console.log(`Username: ${username}`)
-    console.log(`Password: ${password}`)
-
     const [user] = await AuthModels.findUser(username);
 
     if (!user || user.length === 0) {
@@ -40,7 +34,6 @@ const login = async (req, res) => {
     const passwordMatch = await bcrypt.compare(password, user.password);
 
     if (passwordMatch) {
-        console.log('Password match')
         req.session.user = {
             id: user.id,
             username: user.username

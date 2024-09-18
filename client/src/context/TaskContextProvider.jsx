@@ -31,7 +31,7 @@ export default function TaskContextProvider({ children }) {
                 }
                 setItemsLength(activeTasks.length);
             } catch (err) {
-                console.log('fetch task context',err.response.data);
+                console.log(err.response.data);
             }
         }
     }

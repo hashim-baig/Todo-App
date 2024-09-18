@@ -12,3 +12,8 @@
         color: blue;
     }
 }
+
+.nav-link-item-active {
+    color: blue;
+    text-transform: uppercase;
+}

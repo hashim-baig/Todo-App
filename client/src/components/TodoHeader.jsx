@@ -7,7 +7,7 @@ export default function TodoHeader() {
     return (
         <>
             <h2>TODO</h2>
-            <button onClick={toggleTheme}>Theme</button>
+            {/* <button onClick={toggleTheme}>Theme</button> */}
         </>
     )
 }

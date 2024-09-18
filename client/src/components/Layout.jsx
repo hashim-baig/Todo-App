@@ -1,4 +1,4 @@
-import { Outlet, Link } from "react-router-dom"
+import { Outlet, Link, NavLink } from "react-router-dom"
 
 import '../styles/nav-links.css'
 import { useContext } from "react"
@@ -20,8 +20,8 @@ export default function Layout() {
             <nav className="nav-links">
                 {!authState.loggedIn &&
                     <>
-                        <Link to='/login' className="nav-link-item">Login</Link>
-                        <Link to='/register' className="nav-link-item">Register</Link>
+                        <NavLink to='/login' className={({isActive}) => (isActive ? "nav-link-item nav-link-item-active" : "nav-link-item")}>Login</NavLink>
+                        <NavLink to='/register' className={({isActive}) => (isActive ? "nav-link-item nav-link-item-active" : "nav-link-item")}>Register</NavLink>
                     </>
                 }
 
