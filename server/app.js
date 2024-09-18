@@ -35,8 +35,8 @@ app.use(session({
     }
 }));
 
-app.use(AuthRoutes)
-app.use(AuthController.isAuth, TaskRoutes);
+app.use('api', AuthRoutes)
+app.use('/api', AuthController.isAuth, TaskRoutes);
 
 app.listen(process.env.PORT, () => {
     console.log('Server Listening on PORT 3000');
