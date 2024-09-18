@@ -14,7 +14,7 @@ const AuthController = require('./controllers/authController')
 const app = express();
 
 app.use(cors({
-    origin: 'http://localhost:5173' || process.env.CORS_ORIGIN,
+    origin: process.env.CORS_ORIGIN,
     credentials: true
 }));
 app.use(express.json());
@@ -35,8 +35,8 @@ app.use(session({
     }
 }));
 
-app.use('api', AuthRoutes)
-app.use('/api', AuthController.isAuth, TaskRoutes);
+app.use(AuthRoutes);
+app.use(AuthController.isAuth, TaskRoutes);
 
 app.listen(process.env.PORT, () => {
     console.log('Server Listening on PORT 3000');
