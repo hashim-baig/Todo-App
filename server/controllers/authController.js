@@ -38,6 +38,7 @@ const login = async (req, res) => {
             id: user.id,
             username: user.username
         }
+        console.log('Session after login:', req.session);
         res.status(200).json({ user: req.session.user });
     } else {
         res.status(401).send('Incorrect password.');
@@ -45,7 +46,8 @@ const login = async (req, res) => {
 }
 
 const isAuth = (req, res, next) => {
-    if (req.session) {
+    console.log('Session in auth middleware:', req.session);
+    if (req.session.user) {
         return next();
     }
     return res.status(401).send('Please Log In');
