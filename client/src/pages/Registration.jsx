@@ -17,7 +17,6 @@ export default function Registration() {
                 username: username,
                 password: password
             })
-            console.log(response.data);
             setMessage(response.data);
 
            setTimeout(() => navigate('/login'), 1500);

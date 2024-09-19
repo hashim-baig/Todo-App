@@ -11,7 +11,6 @@ export default function Layout() {
 
     const handleLogout = async () => {
         const response = await api.post('/logout', { withCredentials: true })
-        console.log(response.data);
         logout()
     }
 
