@@ -30,6 +30,9 @@ app.use(cors({
 
     credentials: true
 }));
+
+app.options('*', cors());
+
 app.use(express.json());
 
 const sessionStore = new MySQLStore({ createDatabaseTable: true }, db);
