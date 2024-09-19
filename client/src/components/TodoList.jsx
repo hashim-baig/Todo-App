@@ -15,7 +15,6 @@ export default function TodoList() {
         const signal = controller.signal;
         const fetchData = () => {
             try {
-                console.log('useEffect TodoList')
                 fetchTasks('/tasks', signal);
             } catch (err) {
                 if (err.name === 'AbortError') {
@@ -37,7 +36,6 @@ export default function TodoList() {
 
     const handleTaskStatus = async (task) => {
         try {
-            console.log(task)
             await api.post("/update-status", {
                 taskId: task.task_id,
                 status: task.status

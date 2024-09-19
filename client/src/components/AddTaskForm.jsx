@@ -17,7 +17,6 @@ export default function AddTaskForm() {
                 task: addTask,
             }, {withCredentials: true});
             fetchTasks('/tasks');
-            console.log('Fetch AddForm')
         } catch (err) {
             console.log(`Error Message: ${err}`);
         } finally {
