@@ -14,7 +14,7 @@ const AuthController = require('./controllers/authController')
 const app = express();
 
 const allowedOrigins = process.env.ALLOWED_ORIGINS.split(',');
-
+console.log(allowedOrigins);
 app.use(cors({
     origin: function (origin, callback) {
         // Allow requests with no origin (e.g., mobile apps, curl requests)
