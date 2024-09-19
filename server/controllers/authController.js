@@ -45,7 +45,7 @@ const login = async (req, res) => {
 }
 
 const isAuth = (req, res, next) => {
-    if (req.session.user) {
+    if (req.session) {
         return next();
     }
     return res.status(401).send('Please Log In');
