@@ -1,0 +1,52 @@
+/* .heading {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    font-weight: 700;
+    font-size: 2.5rem;
+    color: #fff;
+    letter-spacing: 1rem;
+}
+
+.theme-btn {
+    border: none;
+    background: none;
+    outline: none;
+    cursor: pointer;
+} */
+
+.heading {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-weight: 700;
+    font-size: 2.5rem;
+    color: #fff;
+    letter-spacing: 1rem;
+}
+
+.theme-btn {
+    border: none;
+    background: none;
+    outline: none;
+    cursor: pointer;
+}
+
+@media (max-width: 375px) {
+
+    .heading {
+        font-size: 1.5rem; /* Reduce font size for headings */
+        letter-spacing: 0.5rem; /* Adjust letter spacing */
+    }
+
+}
+
+/* For tablets (max-width: 768px) */
+@media (max-width: 768px) {
+
+    .heading {
+        font-size: 2rem;
+        letter-spacing: 0.75rem; /* Adjust letter spacing */
+    }
+}

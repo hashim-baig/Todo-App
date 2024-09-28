@@ -25,7 +25,7 @@ export default function AuthContextProvider({ children }) {
             {
                 loggedIn: false,
                 user: 'guest'
-            }
+            } 
         )
 
     }

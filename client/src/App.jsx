@@ -1,38 +1,71 @@
-import { useContext, useState } from 'react';
-import { ThemeContext } from './context/ThemeContextProvider';
-import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from 'react-router-dom'
+import { useContext } from 'react'
+import { createBrowserRouter, Link, RouterProvider, useNavigate } from 'react-router-dom';
 
-import Todo from './pages/Todo';
-import Login from './pages/Login';
+import Layout from './pages/Layout.jsx';
+import TodoPage from './pages/ToDoPage.jsx';
+import LoginPage from './pages/LoginPage.jsx';
+import RegistrationPage from './pages/RegistrationPage.jsx';
 
-import './App.css';
-import Registration from './pages/Registration';
-import Layout from './components/Layout';
-import AuthContextProvider from './context/AuthContextProvider';
+import './dark-theme.css';
+import './light-theme.css';
 
-const router = createBrowserRouter(
-  createRoutesFromElements(
-    <Route path='/' element={<Layout />}>
-      <Route path='login' element={<Login />} />
-      <Route path='register' element={<Registration />} /> 
-      <Route path='tasks' element={<Todo />} />
-    </Route>
+import TaskContextProvider from './context/TaskContextProvider.jsx';
+import { ThemeContext } from './context/ThemeContextProvider.jsx';
+import { AuthContext } from './context/AuthContextProvider.jsx';
 
-
-  )
-)
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <Layout />,
+    children: [
+      {
+        path: '',
+        element: <TodoPage />
+      },
+      {
+        path: 'login',
+        element: <LoginPage />
+      },
+      {
+        path: 'register',
+        element: <RegistrationPage />
+      }
+    ]
+  }
+])
 
 function App() {
-  const { theme } = useContext(ThemeContext)
+  const { getThemeClass } = useContext(ThemeContext);
+
+  const { authState, logout } = useContext(AuthContext);
+
+
+  const handleLogout = async () => {
+    const response = await api.post('/logout')
+    logout();
+    
+  };
 
   return (
-    
-      <AuthContextProvider>
-        <div className={theme === 'dark' ? 'App dark-app' : 'App'}>
-        <RouterProvider router={router}/>
-        </div>
-      </AuthContextProvider>
+
+    <main className={getThemeClass('main')}>
+
+      <section className='main-container'>
+
+        {authState.loggedIn &&
+          <div className='user-profile'>
+            <p>{authState.user.username}</p>
+            <button className='logOut-btn' onClick={logout}>Log Out</button>
+          </div>
+        }
+        <TaskContextProvider>
+          <RouterProvider router={router} />
+        </TaskContextProvider>
+      </section>
+    </main>
+
   );
+
 }
 
-export default App;
+export default App

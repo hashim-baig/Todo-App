@@ -17,8 +17,6 @@ const getTasks = (userId) => {
             tasks.user_id, 
             tasks.task_name, 
             tasks.status, 
-            tasks.created_at, 
-            tasks.updated_at,
             users.username
         FROM tasks 
         INNER JOIN users ON tasks.user_id = users.id 
@@ -56,9 +54,21 @@ const clearCompleted = () => {
     
 }
 
+const deleteTask = (taskId) => {
+    const query = `DELETE from tasks WHERE id = ?`;
+    return new Promise((resolve, reject) => {
+        db.query(query, [taskId], (err, result) => {
+            if(err) reject(err);
+            resolve(result)
+        });
+    })
+}
+
+
 module.exports = {
     addTask,
     getTasks,
     updateStatus,
-    clearCompleted
+    clearCompleted,
+    deleteTask
 }

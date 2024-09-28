@@ -3,7 +3,6 @@ const AuthModels = require('../models/authModels')
 
 const register = async (req, res) => {
     const { username, password } = req.body;
-
     try {
         const existingUser = await AuthModels.findUser(username);
         if (existingUser.length > 0) {
@@ -24,7 +23,6 @@ const register = async (req, res) => {
 
 const login = async (req, res) => {
     const { username, password } = req.body;
-
     const [user] = await AuthModels.findUser(username);
 
     if (!user || user.length === 0) {
@@ -38,7 +36,6 @@ const login = async (req, res) => {
             id: user.id,
             username: user.username
         }
-        console.log('Session after login:', req.session);
         res.status(200).json({ user: req.session.user });
     } else {
         res.status(401).send('Incorrect password.');
@@ -46,7 +43,6 @@ const login = async (req, res) => {
 }
 
 const isAuth = (req, res, next) => {
-    console.log('Session in auth middleware:', req.session);
     if (req.session.user) {
         return next();
     }

@@ -1,0 +1,74 @@
+/* .task-list-info, .task-list-filter {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.task-list-info {
+    font-size: .7rem;
+    list-style: none;
+    padding: 1rem;
+}
+
+.task-list-info-item {
+    color: var(--veryDarkGrayishBlue1);
+    cursor: pointer;
+}
+
+.task-list-info-item:hover {
+    color: var(--lightGrayishBlue1);
+}
+.task-list-filter {
+    gap: .5rem;
+} */
+
+
+/* -------------------------------------- */
+
+.task-list-info, .task-list-filter {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.task-list-info {
+    font-size: .8rem;
+    list-style: none;
+    padding: 1rem;
+}
+
+.task-list-info-item {
+    color: var(--veryDarkGrayishBlue1);
+    cursor: pointer;
+}
+
+.task-list-info-item:hover {
+    color: var(--lightGrayishBlue1);
+}
+
+.task-list-filter {
+    gap: .5rem;
+}
+
+@media (max-width: 375px) {
+
+    .task-list-info, .task-list-filter {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+}
+
+/* For tablets (max-width: 768px) */
+@media (max-width: 768px) {
+
+    .task-list-info, .task-list-filter {
+        flex-direction: row; 
+        justify-content: space-between;
+    }
+
+}
+
+/* __________________________________________ */
+
+

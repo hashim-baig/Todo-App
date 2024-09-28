@@ -1,0 +1,110 @@
+/* .task-list {
+    font-size: 1rem;
+}
+
+.task-name {
+    font-size: .8rem;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+
+    list-style: none;
+    padding: 1rem;
+
+    
+}
+
+.completed {
+    text-decoration: line-through;
+}
+
+.task-checked-container {
+    position: relative;
+    background: linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+}
+
+.task-checked::before {
+    content: '✔'; 
+    color: white;
+    font-size: .5rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+} */
+
+.task-list {
+    font-size: 2rem;
+}
+
+.task-name {
+    font-size: 1rem;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: space-between;
+    list-style: none;
+    padding: 1rem;
+}
+
+.task-container {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.delete-task {
+    
+    background: none;
+    border: none;
+    color: var(--lightGrayishBlue1);
+    font-family: inherit;
+    font-size: 0.7rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.delete-task:hover {
+    font-size: 1rem;
+}
+
+.completed {
+    text-decoration: line-through;
+}
+
+.task-checked-container {
+    position: relative;
+    background: linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+}
+
+.task-checked::before {
+    content: '✔';
+    color: white;
+    font-size: .5rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@media (max-width: 375px) {
+
+    .task-list {
+        font-size: 0.8rem; /* Smaller text for task items */
+    }
+
+    .task-name {
+        font-size: 0.7rem;
+    }
+}
+
+/* For tablets (max-width: 768px) */
+@media (max-width: 768px) {
+    .task-list {
+        font-size: 0.9rem;
+    }
+
+    .task-name {
+        font-size: 0.8rem;
+    }
+}

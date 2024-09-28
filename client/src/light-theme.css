@@ -1,0 +1,49 @@
+.main-light {
+    background-image: url('./assets/bg-desktop-light.jpg');
+    background-color: hsl(0, 0%, 98%);
+}
+
+.add-task-input-light {
+    background-color: var(--veryLightGray);
+}
+
+.check-box-light {
+    border: 1px solid var(--lightGrayishBlue3);
+}
+
+.check-box-light:hover {
+    border-color: var(--veryDarkDesaturatedBlue);
+}
+
+.task-list-light {
+    background-color: var(--veryLightGray);
+}
+
+.completed-light {
+    color: var(--lightGrayishBlue3);
+}
+
+.task-name-light {
+    color: var(--veryDarkGrayishBlue);
+}
+
+.card-container-light {
+    background-color: var(--veryLightGray);
+    color: var(--veryDarkGrayishBlue);
+    border: 1px solid var(--veryDarkDesaturatedBlue);
+}
+
+.form-input-light {
+    color: var(--veryLightGray);
+    background-color: var(--veryDarkGrayishBlue);
+}
+
+.form-button-light {
+    background-color: var(--veryDarkGrayishBlue);
+    color: var(--veryLightGray);
+}
+
+.form-button-light:hover {
+    background-color: var(--veryLightGray);
+    color: var(--veryDarkGrayishBlue);
+}

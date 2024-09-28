@@ -1,0 +1,48 @@
+.main-dark {
+    background-image: url('./assets/bg-desktop-dark.jpg');
+    background-color: var(--veryDarkBlue);
+}
+
+.add-task-input-dark {
+    background-color: var(--veryDarkDesaturatedBlue);
+}
+
+.check-box-dark {
+    border: 1px solid var(--darkGrayishBlue1);
+}
+
+.check-box-dark:hover {
+    border-color: var(--lightGrayishBlue2);
+}
+
+.task-list-dark {
+    background-color: var(--veryDarkDesaturatedBlue);
+}
+
+.completed-dark {
+    color: var(--darkGrayishBlue1);
+}
+
+.task-name-dark {
+    color: var(--lightGrayishBlue1);
+}
+
+.card-container-dark {
+    background-color: var(--veryDarkBlue);
+    color: var(--lightGrayishBlue1);
+    border: 1px solid var(--darkGrayishBlue1);
+}
+
+.form-input-dark {
+    color: var(--darkGrayishBlue1);
+}
+
+.form-button-dark {
+    background-color: var(--darkGrayishBlue1);
+    color: white;
+}
+
+.form-button-dark:hover {
+    background-color: var(--lightGrayishBlue1);
+    color: var(--darkGrayishBlue1);
+}

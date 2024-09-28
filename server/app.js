@@ -13,18 +13,17 @@ const AuthController = require('./controllers/authController')
 
 const app = express();
 
+const isProduction = process.env.NODE_ENV === 'production';
+
 const allowedOrigins = process.env.ALLOWED_ORIGINS.split(',');
-console.log(allowedOrigins);
 app.use(cors({
     origin: function (origin, callback) {
-        // Allow requests with no origin (e.g., mobile apps, curl requests)
         if (!origin) return callback(null, true);
 
-        // Check if the request origin is in the allowedOrigins array
-        if (allowedOrigins.indexOf(origin) !== -1) {
-            callback(null, true); // Allow the request
+        if (allowedOrigins.indexOf(origin) !== -1 || !isProduction) {
+            callback(null, true); 
         } else {
-            callback(new Error('Not allowed by CORS')); // Deny the request
+            callback(new Error('Not allowed by CORS'));
         }
     },
 
@@ -43,17 +42,19 @@ app.use(session({
     store: sessionStore,
     resave: false,
     saveUninitialized: false,
-    proxy: true,
+    proxy: isProduction,
     cookie: {
         maxAge: 1000 * 60 * 5,
         httpOnly: true,
-        secure: true,
-        sameSite: 'none'
+        secure: isProduction,
+        sameSite: isProduction ? 'none' : 'lax'
     }
 }));
 
 app.use('/api', AuthRoutes);
-app.use('/api', AuthController.isAuth, TaskRoutes);
+app.use('/api', AuthController.isAuth, TaskRoutes); 
+
+
 
 app.listen(process.env.PORT, () => {
     console.log('Server Listening on PORT 3000');

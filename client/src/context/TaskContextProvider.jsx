@@ -1,45 +1,37 @@
 import { createContext, useState } from "react";
-import api from '../api/axios';
+import api from "../api/axios";
 
-
-export const TaskContext = createContext({
-    tasks: {},
-    itemsLength: 0,
-    fetchTasks: () => { }
-})
-
+export const TaskContext = createContext(
+    {
+        tasks: {},
+        fetchTasks: () => { },
+        filterTasks: () => { }
+    }
+)
 
 export default function TaskContextProvider({ children }) {
     const [tasks, setTasks] = useState([]);
-    const [itemsLength, setItemsLength] = useState(0);
 
     const taskState = {
         tasks: tasks,
-        itemsLength: itemsLength,
-        fetchTasks: async (route, btn) => {
-            try {
-                const response = await api.get(route, {withCredentials: true});
-                const tasks = response.data;
-                const activeTasks = tasks.filter(task => task.status === 'pending');
-                if (btn === 'active') {
-                    setTasks(activeTasks);
-                } else if (btn === 'completed') {
-                    const completedTasks = tasks.filter(task => task.status === 'completed');
-                    setTasks(completedTasks);
-                } else {
-                    setTasks(tasks);
-                }
-                setItemsLength(activeTasks.length);
-            } catch (err) {
-                console.log(err.response.data);
+        fetchTasks: async (status) => {
+            const response = await api.get('/tasks');
+            const allTasks = response.data;
+            if (status === 'active') {
+                const activeTasks = allTasks.filter(task => task.status === 'pending')
+                setTasks(activeTasks)
+            } else if (status === 'completed') {
+                const completedTasks = allTasks.filter(task => task.status === 'completed')
+                setTasks(completedTasks)
+            } else {
+                setTasks(allTasks);
             }
         }
     }
-
 
     return (
         <TaskContext.Provider value={taskState}>
             {children}
         </TaskContext.Provider>
-    );
+    )
 }
